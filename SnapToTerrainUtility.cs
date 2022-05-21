@@ -13,7 +13,7 @@ namespace Namespace
             foreach (var transform in Selection.transforms)
             {
                 var terrainHits = Physics
-                                    .RaycastAll(transform.position + Vector3.up, Vector3.down, float.MaxValue)
+                                    .RaycastAll(transform.position + Vector3.up * 100f, Vector3.down, float.MaxValue)
                                     .OrderBy(hit => (transform.position - hit.point).sqrMagnitude)
                                     .Where(hit => hit.collider is TerrainCollider)
                                     .ToArray();
